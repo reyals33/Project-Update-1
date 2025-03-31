@@ -1,0 +1,353 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+:root {
+    /* Heart-themed colors */
+    --primary-heart: #8a2be2; /* Deep purple */
+    --light-heart: #b19cd9; /* Light lavender */
+    --accent-heart: #20b2aa; /* Teal */
+    --dark-heart: #483d8b; /* Dark slate blue */
+    
+    /* Cloud-themed colors */
+    --primary-cloud: #e0f7fa; /* Very light cyan */
+    --accent-cloud: #4fc3f7; /* Light blue */
+    
+    /* Complementary colors */
+    --accent-yellow: #fff9c4; /* Light yellow */
+    --accent-warm: #ffe0b2; /* Light orange */
+    
+    /* Neutral colors */
+    --text-dark: #333;
+    --text-light: #fff;
+    --background: #f8f9fa;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--background);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-heart) 0%, var(--accent-heart) 100%);
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+/* Logo Container - Updated to include the SVG Logo */
+.logo-container {
+    background-color: var(--primary-cloud);
+    padding: 15px;
+    border-radius: 10px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* SVG Logo using background-image */
+.logo-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 120'%3E%3Cdefs%3E%3ClinearGradient id='background-gradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e0f7fa' /%3E%3Cstop offset='100%25' stop-color='%234fc3f7' /%3E%3C/linearGradient%3E%3ClinearGradient id='heart-gradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238a2be2' /%3E%3Cstop offset='100%25' stop-color='%2320b2aa' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='300' height='120' rx='10' ry='10' fill='url(%23background-gradient)' /%3E%3Cpath d='M45,30 Q45,20 55,20 Q65,20 65,30 Q75,20 85,30 Q95,20 95,30 Q95,40 85,40 Q75,50 65,40 Q55,50 45,40 Q35,40 45,30' fill='%23e0f7fa' stroke='%234fc3f7' stroke-width='1.5' /%3E%3Cpath d='M225,70 Q225,60 235,60 Q245,60 245,70 Q245,80 225,95 Q205,80 205,70 Q205,60 215,60 Q225,60 225,70' fill='url(%23heart-gradient)' stroke='%23483d8b' stroke-width='1.5' /%3E%3Ctext x='150' y='70' font-family='Arial, sans-serif' font-size='15' font-weight='bold' text-anchor='middle' fill='%23333'%3EOpen Air/Open Heart Project%3C/text%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* Alternative method using inline SVG for better gradient support */
+/*
+.logo-inline-svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+*/
+
+h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    color: var(--text-light);
+    flex-grow: 1;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation Styles */
+nav {
+    background: linear-gradient(to right, var(--accent-heart), var(--light-heart));
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav ul li {
+    flex: 1 1 150px;
+    max-width: 200px;
+    text-align: center;
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-dark);
+    background-color: var(--primary-cloud);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul li a:hover {
+    background-color: var(--accent-cloud);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    color: var(--text-light);
+}
+
+/* Main Content Styles */
+main {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.content-box {
+    flex: 1 1 300px;
+    background: linear-gradient(135deg, var(--light-heart) 0%, var(--accent-heart) 100%);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.full-width {
+    flex: 1 1 100%;
+}
+
+.pink-section {
+    background-color: var(--light-heart);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 10px;
+    flex-grow: 1;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.green-section {
+    background-color: var(--accent-heart);
+    border-radius: 10px;
+    padding: 15px;
+    color: var(--text-light);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.yellow-section {
+    background-color: var(--accent-yellow);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+}
+
+p {
+    line-height: 1.6;
+    color: var(--text-dark);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(to right, var(--dark-heart), var(--primary-heart));
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: auto;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    color: var(--text-light);
+}
+
+/* Form Styles */
+.form-container {
+    background-color: var(--primary-cloud);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--accent-heart);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
+}
+
+button {
+    background: linear-gradient(to right, var(--primary-heart), var(--accent-heart));
+    border: none;
+    padding: 14px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    color: var(--text-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.button {
+    display: inline-block;
+    background: linear-gradient(to right, var(--primary-heart), var(--accent-heart));
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+a {
+    color: var(--primary-heart);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--accent-heart);
+}
+
+/* Steps section for How It Works page */
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.step {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.step h3 {
+    color: var(--primary-heart);
+    margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo-container {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    main {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .container {
+        padding: 15px;
+    }
+    
+    nav ul li {
+        flex: 1 1 120px;
+    }
+}
